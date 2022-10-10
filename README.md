@@ -5,10 +5,6 @@ The first two days will consist of using Tinkercad to build various projects onl
 
 Finally, the workshop will conclude by using everything we’ve learned to build an Arduino UNO based clock with a display, buttons, potentiometer, and buzzer. 
 
-Sign-In QR Code
-
-![TickTock_Sign-In_Form_QR](https://user-images.githubusercontent.com/69320369/194932118-e4350fa5-7867-42ab-81b6-a60007aa6ca4.PNG)
-
 Slides:
 
 Day 1: https://docs.google.com/presentation/d/13y1DVrR1TF6dii0VoBeQZpm3sx0KkZO6AXBjDuzgFeY/edit?usp=sharing
