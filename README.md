@@ -12,6 +12,7 @@ Session 1: Introduction (10/11/22)
 - Input vs Output Devices
 - How to use Arduino Reference
 - Arduino Online Simulators
+- Recording: https://www.youtube.com/watch?v=samfaXAmWG8
 
 ![Ticktock_Session2_Flyer](https://user-images.githubusercontent.com/25860232/195999883-2e8e2438-8064-4658-8497-fe47e048b4c5.png)
 
