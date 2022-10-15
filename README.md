@@ -1,4 +1,4 @@
-# TickTock_With-Arduino
+# TickTock-with-Arduino
 Learn the basics of Arduino hardware and software with this 4 day example based workshop! We’ll cover everything from how to choose the correct board for your project to how to program displays and motors. 
 
 The first two days will consist of using Tinkercad to build various projects online and learning how to program using blocks and the Arduino IDE. The next two days will be focused on learning how to use breadboards and outputs on a real Arduino board. 
