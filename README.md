@@ -37,10 +37,10 @@ Session 4: Clock Assembly (11/01/22)
 
 Slides:
 
-Day 1: https://docs.google.com/presentation/d/13y1DVrR1TF6dii0VoBeQZpm3sx0KkZO6AXBjDuzgFeY/edit?usp=sharing
+Day 1: https://docs.google.com/presentation/d/1lOmrpuCckkFcHewB-61FEfNlbr06Lt8UsCkSUl08e9Y/edit?usp=sharing
 
 Day 2: https://docs.google.com/presentation/d/1BTWjS7zrjvngwmufdWOtUuX4YWJQUVhXgjoB6bCiAc0/edit?usp=sharing
 
-Day 3: 
+Day 3: https://docs.google.com/presentation/d/13y1DVrR1TF6dii0VoBeQZpm3sx0KkZO6AXBjDuzgFeY/edit?usp=sharing
 
 Day 4:
