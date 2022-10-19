@@ -20,6 +20,9 @@ Session 2: Tinkercad (10/18/22)
 - What is Arduino Project Hub
 - Defining Variables and Pins
 - Time Functions and Motor Output
+- Recording: https://youtu.be/daYpwixexB8
+
+![TickTock_Session_3_Flyer](https://user-images.githubusercontent.com/25860232/196721869-8d9744c1-0aac-45d4-b981-2bb7f8c42cad.png)
 
 Session 3: Clock Example (10/25/22)
 - Display Functionality
