@@ -30,10 +30,12 @@ Session 3: Clock Example (10/25/22)
 - Reproduce Tinkercad on Arduino
 - Audio Addition
 
+![TickTock_Session_4_Flyer](https://user-images.githubusercontent.com/25860232/197873829-703bf9bd-8523-42a0-99da-154a73057892.png)
+
 Session 4: Clock Assembly (11/01/22)
-- Programming Button Explanation
-- Programming Potentiometers
-- Clock Assembly and Testing
+- Program Clock Input
+- Implement Potentiometers
+- Assembly and Testing
 
 Slides:
 
