@@ -1,271 +1,83 @@
 //full clock code
+// C++ code
 #include <LiquidCrystal.h>
 
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+LiquidCrystal lcd(2,3,4,5,6,7);
+//initialize variables
+int h = 6, m = 59, s = 58;
+int month = 10, day = 27, year = 22;
+//create and set alarm variables
+int ah = 7, am = 0, as = 0;
+//set buzzer
+const int buzzer = 8;
+//set button
+const int button = 9;
+const int button2 = 10;
 
-//variable setup
-int starttime;
-int activetime;
-int prevoustime = 0;
 
-//buzzer 
-const int buzzer = 7;
-const int button = 1;
-
-//clock start times
-int hours = 0;
-int mins = 0;
-int secs = 0;
-
-//alarm start time
-int ahours = 0;
-int amins = 0;
-
-//date setup
-int startdate;
-int activedate;
-int previousdate = 0;
-
-//date start time
-int day = 1;
-int month = 1;
-int year = 2020;
- 
 void setup()
 {
-   lcd.begin(16, 2);
-   lcd.clear();
-   Serial.begin(9600);
-
-   pinMode(6, INPUT);
-   digitalWrite(6, HIGH);
-   pinMode(8, INPUT);
-   digitalWrite(8, HIGH);
-   pinMode(9, INPUT);
-   digitalWrite(9, HIGH);
-   pinMode(10, INPUT);
-   digitalWrite(10, HIGH);
-   pinMode(A4, INPUT);
-   digitalWrite(A4, HIGH);
-  
-   pinMode(buzzer, OUTPUT);
-   pinMode(button, INPUT_PULLUP);
-   
-   starttime = millis()/1000,DEC;
+  lcd.begin(16,2);
+  lcd.clear();
+  Serial.begin(9600);
+  pinMode(button, INPUT_PULLUP);
+  pinMode(button, INPUT_PULLUP);
 }
- 
+
 void loop()
 {
-  //when alarm button is on set the cursor to the middle of line 1
-  //when button 1 is pressed increase the minutes
-  while(digitalRead(A4) == LOW)
+  s=s+1;
+  if(s == 60)
   {
-    lcd.setCursor(0,0);
-    lcd.print("Alarm");
-    
-    if(digitalRead(8) == LOW)
-    {
-      amins++;
-    } 
-    //if button 2 is pressed increase the hours
-    else if (digitalRead(6) == LOW)
-    {
-      ahours++;
-    }
-    lcd.setCursor(6,0);
-
-    //alarm setup
-    if(ahours < 10)
-    {
-      lcd.print("0");
-      lcd.print(ahours);
-    }
-    else
-    {
-      lcd.print(ahours);
-    }
-    
-    lcd.print(":");
-    
-    if (amins < 10)
-    {
-      lcd.print("0");
-      lcd.print(amins);
-    }
-    else
-    {
-      lcd.print(amins);
-    }
-    
-    if(amins > 59)
-    {
-       ahours++;
-       amins = 0;
-    } 
-    if(ahours > 23)
-    {
-       ahours = 0; 
-    }
-    delay(500);
-    lcd.clear();
+    m = m+1;
+    s = 0;
   }
-  
-  //if set time button is on set the writing to line 1
-  //same thing as above for minutes and hours
-  if(digitalRead(10) == LOW)
+  if (m==60)
   {
-    lcd.setCursor(0,0);
-    lcd.print("Time");
-    lcd.setCursor(6,0);
-    
-    if(digitalRead(8) == LOW)
-    {
-      mins++;
-    } 
-    else if (digitalRead(6) == LOW)
-    {
-      hours++;
-    }
+    h = h+1;
+    m = 0;
   }
-
-  //clock time setup
-  activetime = (millis() / 1000) - starttime;
+  delay(1000);
+  lcd.clear();
   
-  if(prevoustime < (activetime - 59))
-  { 
-    mins++;
-    prevoustime = activetime;
-  } 
-
-  if(secs > 59)
-  {
-    mins++;
-    secs = 0;
-  }
-  
-  if(mins > 59)
-  {
-    hours++;
-    mins = 0;
-  } 
-     
-  if(hours > 23)
-  {
-     hours = 0; 
-  }
-  lcd.setCursor(6,0);
-  
-  if(hours < 10)
+  //output data to clock
+  lcd.setCursor(4,0);
+  //hours
+  if (h <10)
   {
     lcd.print("0");
-    lcd.print(hours);
+    lcd.print(h);
   }
   else
   {
-    lcd.print(hours);
+    lcd.print(h);
   }
   lcd.print(":");
-    
-  if (mins < 10)
+  
+  //minutes
+  if (m <10)
   {
     lcd.print("0");
-    lcd.print(mins);
+    lcd.print(m);
   }
   else
   {
-     lcd.print(mins);
+    lcd.print(m);
   }
+  lcd.print(":");
   
-  //buzzer set up for the ringing
-  if(ahours == hours && amins == mins)
+  //seconds
+  if (s <10)
   {
-    tone(buzzer, 1000); // Send 1KHz sound signal...
-    delay(1000);        // ...for 1 sec
-    noTone(buzzer);     // Stop sound...
-    delay(1000);        // ...for 1sec
+    lcd.print("0");
+    lcd.print(s);
   }
-  
   else
   {
-    delay(300);
+    lcd.print(s);
   }
-  lcd.clear();
-
-  //button to switch it off
-  int buttonState = digitalRead(button); //state of button
-  if (buttonState == HIGH)
-  {
-    Serial.println("The button is unpressed");
-    digitalWrite(button, LOW);  // turn off
-  }
- 
-  Serial.println(mins);
-  Serial.println(hours);
-  Serial.println("");
-  Serial.println(amins);
-  Serial.println(ahours);
-  Serial.println("");
-  Serial.println(activetime);
-  Serial.println(prevoustime);
-  Serial.println(starttime);
-  Serial.println("");
-
-  //date setup
-  //
-  //
-  //
-  {
-    if(digitalRead(9) == LOW)
-    {
-      lcd.setCursor(0,1);
-      lcd.print("Date");
-      lcd.setCursor(5,1);
-    
-      if(digitalRead(8) == LOW)
-      {
-        month++;
-      } 
-
-      else if(digitalRead(6) == LOW)
-      {
-        day++;
-      }
-    }
-    lcd.setCursor(4,1); 
-    
-      //format
-    if(month < 10)
-     {
-       lcd.print("0");
-       lcd.print(month);
-     }
-     else
-     {
-       lcd.print(month);
-     }
-     lcd.print("/");
-    
-     if (day < 10)
-     {
-       lcd.print("0");
-       lcd.print(day);
-     }
-     else
-     {
-      lcd.print(day);
-     }
-     lcd.print("/");
-
-     lcd.print(year);
-    }
-    
-    Serial.println(day);
-    Serial.println(month);
-    Serial.println(year);
-    Serial.println("");
-    
-    //coding for new days
-    if(hours == 0 && mins == 0 && secs == 0)
+  //coding for new days
+    if(h == 0 && m == 0 && s == 0)
     {
       day + 1;
     }
@@ -287,11 +99,66 @@ void loop()
       month++;
       day = 1;
     }
+  	//years
     if(month > 12)
     {
       year++;
       month = 1;
     }
-    lcd.setCursor(6,0);
+  
+    lcd.setCursor(4,1);
+  	if(month < 10)
+  {
+    lcd.print("0");
+    lcd.print(month);
+  }
+  else
+  {
+    lcd.print(month);
+  }
+  lcd.print("/");
+    
+  if (day < 10)
+  {
+    lcd.print("0");
+    lcd.print(day);
+  }
+  else
+  {
+     lcd.print(day);
+  }
+  lcd.print("/");
+  
+ 
+   lcd.print(year);
+  
+  if(ah == h && am == m && as == s)
+  {
+    Buzz();
+  }
+  
+  //change minutes
+  if(digitalRead(9) == LOW)
+  {
+  	m++;
+  }
+  //change hours
+  if(digitalRead(9) == LOW)
+  {
+  	h++;
+  }
+}
+
+void Buzz()
+{
+  int i = 0;
+  for(i = 0; i < 10; i++)
+  {
+  tone(buzzer, 1000); //sound buzzer
+  delay(500); // delay half a second
+  noTone(buzzer); //turn off buzzer
+  delay(500); //delay half a second
+  s++;
+  }
 }
 
