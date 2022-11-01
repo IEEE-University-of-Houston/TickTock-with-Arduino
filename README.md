@@ -45,4 +45,4 @@ Day 2: https://docs.google.com/presentation/d/1BTWjS7zrjvngwmufdWOtUuX4YWJQUVhXg
 
 Day 3: https://docs.google.com/presentation/d/13y1DVrR1TF6dii0VoBeQZpm3sx0KkZO6AXBjDuzgFeY/edit?usp=sharing
 
-Day 4:
+Day 4: https://docs.google.com/presentation/d/1kIKkedyji1kee9t4e2tX1zQKEME3fx3uzrTQKhJK5_c/edit?usp=sharing
